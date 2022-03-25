@@ -1,6 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
 
 const fs = require("fs");
+require("dotenv").config();
 const PRIVATE_KEY = fs.readFileSync(".secret").toString().trim();
 const { ROPSTEN_TESTNET_URL, POLYGON_TESTNET_URL } = process.env;
 

@@ -4,7 +4,7 @@ coverage
 coverage.json
 typechain
 .secret
-
+.package-lock.json
 #Hardhat files
 cache
 artifacts

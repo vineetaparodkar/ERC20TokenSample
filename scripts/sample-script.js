@@ -4,6 +4,8 @@
 // When running the script with `npx hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
 const hre = require("hardhat");
+require("dotenv").config();
+const { MINTER_ACCOUNT,BURNER_ACCOUNT } = process.env;
 
 async function main() {
   // Hardhat always runs the compile task when running scripts with its command
@@ -15,7 +17,7 @@ async function main() {
 
   // We get the contract to deploy
   const ERC20Token = await hre.ethers.getContractFactory("ERC20Token");
-  const erc20Token = await ERC20Token.deploy("SampleToken", "TOKEN");
+  const erc20Token = await ERC20Token.deploy("SampleToken", "TOKEN",MINTER_ACCOUNT,BURNER_ACCOUNT);
 
   await erc20Token.deployed();
 
